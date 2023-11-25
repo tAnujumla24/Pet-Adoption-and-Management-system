@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+{% block title %} 
+    Home Page
+{% endblock %}
+
+{% block content %}
+<div class="image-container">
+    <img src="{{ url_for('static',filename='images/2.png')}}" alt="Your Image">
+    <a href="{{url_for('pet_page')}}" class="adopt-button">Adopt</a>
+</div>
+<div class="image-row">
+    <a href="{{url_for('pet_page')}}">
+    <img src="{{ url_for('static',filename='images/pet_shop.png')}}" alt="First Image"></a>
+    
+</div>
+
+
+<div class="container">
+    <!-- Content for the home page goes here -->
+    <a href="{{url_for('vendor_page')}}">
+   <img src="{{ url_for('static',filename='images/7.png')}}" alt="contact">
+</div>
+<div class="footer">
+    &copy; 2023 Paw Prints. All rights reserved.
+</div>
+
+{% endblock %}
+
+
+{% block style %}
+<style>
+                
+        
+    .image-container {
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    .image-container img {
+        width: 100%;
+        display: block;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .adopt-button {
+        position: absolute;
+        top:115%;
+        left: 54%;
+        transform: translate(-50%, -50%);
+        display: block;
+        width: 150px;
+        padding: 10px;
+        background-color: #452a10;
+        color: #fffbfb;
+        text-align: center;
+        font-size: 30px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        text-decoration: none;
+        border-radius: 5px;
+        z-index: 3;
+     }
+    .image-row {
+display: flex;
+justify-content: space-between;
+margin-top: 20px;
+}
+
+.image-row img {
+width: 48%; /* Adjust as needed */
+margin-right: 2%; /* Adjust as needed */
+}
+.image-button {
+width: 48%; /* Adjust as needed */
+padding: 10px;
+background-color: #faf0e6;
+color: #080808;
+text-align: center;
+font-size: 20px;
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+text-decoration: none;
+border-radius: 5px;
+margin-top: 10px;
+}
+.container{
+max-width: 100%;
+        overflow: hidden;
+}
+.container img {
+        
+        display: block;
+    
+width: 48%; /* Adjust as needed */
+margin-left: 53%; /* Adjust as needed */
+}
+
+
+</style>
+
+{% endblock %}
+
+
+

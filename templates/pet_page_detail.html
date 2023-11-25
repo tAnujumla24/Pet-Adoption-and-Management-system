@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %} 
+    Pet Details
+{% endblock %}
+
+{% block content %}
+    <p>{{ pet_data.descriptions }}</p>
+    <p>Category: {{ pet_data.category }}</p>
+    <!-- Add more details as needed -->
+
+    <!-- Add a back button or link to go back to the pet list -->
+    <a href="{{ url_for('pet_page') }}">Back to Pet List</a>
+{% endblock %}

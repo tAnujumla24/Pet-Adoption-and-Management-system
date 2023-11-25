@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% block title %} 
+    Checkout Page
+{% endblock %}
+
+{% block content %}
+    <h1>Order Placed Successfully</h1>
+    <p>Order ID: {{ ans }}</p>
+    
+    <h2>Ordered Items</h2>
+    <ul class=".card-container">
+        {% for item in cart_contents %}
+            <div class="product-card">
+                <p>{{ item[2] }}</p>  {# Assuming Description is the third column in the SELECT query result #}
+                <p>{{ item[1] }}</p> {# Assuming Category is the second column #}
+                <p>Price: 100</p> {# Assuming Status is the fourth column #}
+                
+                
+            </div>
+        {% endfor %}
+        {% for item1 in cart_contents1 %}
+            <div class="product-card">
+                <p>{{ item1[1] }}</p>  {# Assuming Description is the third column in the SELECT query result #}
+                <p>{{ item1[4] }}</p> {# Assuming Category is the second column #}
+                <p>Price: {{ item1[2] }}</p> {# Assuming Status is the fourth column #}
+                
+                
+            </div>
+        {% endfor %}
+        
+        {% for item2 in cart_contents3 %}
+            <div class="product-card">
+                <p>{{ item2[1] }}</p>  {# Assuming Description is the third column in the SELECT query result #}
+                <p>{{ item2[2] }}</p> {# Assuming Category is the second column #}
+                <p>Fees: {{ item2[3] }}</p> {# Assuming Status is the fourth column #}
+                
+                
+            </div>
+        {% endfor %}
+
+    </ul>
+
+
+    <h2>Order Summary </h2>
+<ul class="card-container">
+    {% for items1 in order_details %}
+        <div class="product-card">
+            <h2>Order Quantity:{{ items1[1] }}</h2>  {# Assuming descriptions is the eighth column in the SELECT query result #}
+            <p>Total Amount:{{ items1[2] }}</p> {# Assuming category is the ninth column #}
+            <p>Order Date:{{ items1[3] }}</p> {# Assuming pet_status is the tenth column #}
+            <p>Expected Delivery:{{ items1[4] }}</p>  {# Assuming order_quantity is the second column #}
+            <p>Order Status:{{ items1[5] }}</p>  {# Assuming total_amount is the third column #}
+        </div>
+    {% endfor %}
+</ul>
+
+<p><a href="{{ url_for('payment', order_id=ans) }}">Proceed to Payment</a></p>
+    <p><a href="{{ url_for('pet_page') }}">Continue Shopping</a></p>
+{% endblock %}
+
+{% block style %}
+    <!-- Add your styles here if needed -->
+    <style>
+        .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .product-card {
+        width: 250px;
+        border: 1px solid #ccc;
+        margin: 10px;
+        padding: 10px;
+        text-align: center;
+        background-color: #fff;
+    }
+
+    .product-image {
+        width: 100%;
+        max-height: 150px;
+    }
+    </style>
+    
+{% endblock %}

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changing Tables</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #333;
+}
+
+form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Optional: Add some spacing between form sections */
+h1:not(:first-of-type),
+form:not(:first-of-type) {
+    margin-top: 40px;
+}
+    </style>
+</head>
+<body>
+    <h1>Insert Pet</h1>
+    <form method="post" action="/insert_pet">
+        <label for="pet_id">Pet ID:</label>
+        <input type="text" id="pet_id" name="pet_id" required>
+        <label for="descriptions">Descriptions:</label>
+        <input type="text" id="descriptions" name="descriptions" required>
+        <label for="category">Category:</label>
+        <input type="text" id="category" name="category" required>
+        <label for="pet_status">Pet Status :</label>
+        <input type="text" id="pet_status" name="pet_status" required>
+        <button type="submit">Insert</button>
+    </form>
+
+    <h1>Update Pet</h1>
+    <form method="post" action="/update_pet">
+        <label for="pet_id">Pet ID:</label>
+        <input type="text" id="pet_id" name="pet_id" required>
+        <label for="pet_status">Pet Status</label>
+        <input type="text" id="pet_status" name="pet_status" required>
+
+        <button type="submit">Update</button>
+    </form>
+
+    
+
+    <h1>Update Pet Product</h1>
+    <form method="post" action="/update_petproduct">
+        <label for="product_id">Product ID:</label>
+        <input type="text" id="product_id" name="product_id" required>
+        <label for="product_price">Product Price</label>
+        <input type="text" id="product_price" name="product_price" required>
+
+        <button type="submit">Update</button>
+    </form>
+
+    <h1>Insert Vendor</h1>
+    <form method="post" action="/insert_vendor">
+        <label for="vendor_id">Vendor ID:</label>
+        <input type="text" id="vendor_id" name="vendor_id" required>
+        <label for="vendor_name">Vendor Name:</label>
+        <input type="text" id="vendor_name" name="vendor_name" required>
+        <label for="vendor_email">Vendor email :</label>
+        <input type="text" id="vendor_email" name="vendor_email" required>
+        <label for="company_name">Company Name :</label>
+        <input type="text" id="company_name" name="company_name" required>
+        <label for="vendor_contact">Vendor Contact :</label>
+        <input type="text" id="vendor_contact" name="vendor_contact" ><br><br>
+        
+        <button type="submit">Insert</button>
+    </form>
+
+
+
+    <h1>Delete Vendor</h1>
+    <form method="post" action="/delete_vendor">
+        <label for="vendor_id">Vendor ID:</label>
+        <input type="text" id="vendor_id" name="vendor_id" required>
+
+        <button type="submit">Delete</button>
+    </form>
+
+  
+    <h1>Update Service</h1>
+    <form method="post" action="/update_services">
+        <label for="service_id">Service ID:</label>
+        <input type="text" id="service_id" name="service_id" required>
+        <label for="service_fees">Service Fees:</label>
+        <input type="text" id="service_fees" name="service_fees" required>
+
+        <button type="submit">Update</button>
+    </form>
+
+
+
+
+
+</body>
+</html>

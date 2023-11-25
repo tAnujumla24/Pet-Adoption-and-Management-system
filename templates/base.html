@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %}</title>
+    <style>
+        body {
+                    font-family: Arial, sans-serif;
+                    background-color:#cadae0;
+                    margin: 0px;
+                    padding: 0;
+                }
+        
+                header {
+                    background:#836953;
+                    color: #fff;
+                    padding: 10px 0;
+                    text-align: center;
+                    
+                }
+                .logo{
+                    display: inline-block;
+                    font-size: 40px;
+                    padding:10px;
+    
+                    }
+        
+               
+                nav {
+                    background-color: rgba(131, 105, 83, 0.0);
+                    overflow: hidden;
+                    text-align: center;
+                    }
+
+                nav ul {
+                    list-style-type: none;
+                    margin: 0;
+                    padding: 0;
+                    display: inline-block;
+                    }
+                
+
+                nav li {
+                    display: inline;
+  
+                    }
+
+                nav a {
+                display:inline-block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                }
+
+                nav a:hover {
+                    background-color: #63b8bb;
+                    color: black;
+                }
+
+/* Optional: Add styles for the active link */
+nav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+        
+                /* Remove the underline from the links */
+                nav a {
+                    text-decoration: none;
+                    color:black;
+                }
+                .footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position:relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        
+
+        
+    </style>
+    {% block style %}
+
+    {% endblock %}
+</head>
+<body>
+    <nav>
+        <div class="logo">🐾</div>
+        <ul>
+            <li><a href="{{url_for('home_page')}}">Home</a></li>
+            <li><a href="{{url_for('pet_page')}}">Pets</a></li>
+            <li><a href="{{url_for('shop_page')}}">Pet Shop</a></li>
+            <li><a href="{{url_for('service_page')}}">Services</a></li>
+            <li><a href="{{url_for('aboutus_page')}}">About Us</a></li>
+            <li><a href="{{url_for('login_page')}}">Login</a></li>
+            <li><a href="{{url_for('view_cart')}}">Cart</a></li>
+        </ul>
+    </nav>
+    {% block content %}
+
+    {% endblock %}
+
+</body>
+</html>

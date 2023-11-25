@@ -1,0 +1,178 @@
+{% extends 'base.html' %}
+
+{% block title %} 
+    Services Page
+{% endblock %}
+
+{% block content %}
+<div class="card-container">
+    
+        
+
+        {% for serve in services %}
+    <div class="product-card">
+        <h2>{{ serve[1] }}</h2>  {# Assuming Description is the third column in the SELECT query result #}
+        <p>{{ serve[2] }}</p> {# Assuming Category is the second column #}
+        <p>Status: {{ serve[3] }}</p> {# Assuming Status is the fourth column #}        
+        <!-- Add a form to submit the pet_id to the /add_to_cart route -->
+        <form method="POST" action="{{ url_for('add_to_cart2') }}" onsubmit="return addToCart(this);">
+            <input type="hidden" name="service_id" value="{{ serve[0] }}">
+            <input type="hidden" id="added_items" value="{{ session.get('added_items', '[]') | tojson | safe }}">
+            <button class="know-more-button" type="submit" {% if serve[0] in session.get('added_items', []) %}disabled{% endif %}>
+                {% if serve[0] in session.get('added_items', []) %}Added{% else %}Add to Cart{% endif %}
+            </button>
+        </form>
+    </div>
+{% endfor %}
+
+      
+    
+
+    
+    <script>
+        function addToCart(form) {
+            // Get the pet_id from the form
+            var service_id = form.querySelector('[name="service_id"]').value;
+    
+            // Disable the button to prevent multiple submissions
+            var button = form.querySelector('btn');
+            button.disabled = true;
+    
+            // Change the button text to "Added"
+            button.textContent = 'Added';
+    
+            // Access the added_items from the hidden input
+            var addedItemsInput = document.getElementById('added_items');
+            var addedItems = JSON.parse(addedItemsInput.value || '[]');
+    
+            // Add the pet_id to the list of added items in the session
+            addedItems.push(service_id);
+            addedItemsInput.value = JSON.stringify(addedItems);
+    
+            // Submit the form
+            return true;
+        }
+    </script>
+
+
+
+
+
+{% endblock %}
+
+
+
+
+{% block style %}
+<style>
+   .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .product-card {
+        width: 250px;
+        border: 1px solid #ccc;
+        margin: 10px;
+        padding: 10px;
+        text-align: center;
+        background-color: #fff;
+    }
+
+    .product-image {
+        width: 100%;
+        max-height: 150px;
+    }
+
+
+    
+</style>
+
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    
+    <title>Contact Vendors</title>
+    
+  </head>
+  <body>
+    <nav>
+      <div class="logo">🐾</div>
+      <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="pets.html">Pets</a></li>
+          <li><a href="pet_shop.html">Pet Shop</a></li>
+          <li><a href="about_us.html">About Us</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="register.html">Register</a></li>
+          <li><a href="admin.html">Admin</a></li>
+          <li><a href="cart.html">Cart</a></li>
+      </ul>
+  </nav>
+
+ 
+  <main class="page-content">
+
+    <div class="card">
+      <div class="content">
+        <h2 class="title">Prakash Gowda</h2>
+        <p class="copy">Check out all of these gorgeous mountain trips with beautiful views of, you guessed it, the mountains</p>
+        <button class="btn">View Trips</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="content">
+        <h2 class="title">Lakshmi Reddy</h2>
+        <p class="copy">Plan your next beach trip with these fabulous destinations</p>
+        <button class="btn">View Trips</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="content">
+        <h2 class="title">Santhosh Kumar</h2>
+        <p class="copy">It's the desert you've always dreamed of</p>
+        <button class="btn">Book Now</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="content">
+        <h2 class="title">AGHSKK</h2>
+        <p class="copy">Seriously, straight up, just blast off into outer space today</p>
+        <button class="btn">Book Now</button>
+      </div>
+    </div>
+
+    
+    
+      
+  </main>
+  <div class="footer">
+    &copy; 2023 Paw Prints. All rights reserved.
+</div>
+
+  
+  </body>
+</html> -->

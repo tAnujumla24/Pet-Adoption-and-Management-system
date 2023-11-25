@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block title %} 
+    Pet Products Page
+{% endblock %}
+
+{% block content %}
+<div class="card-container">
+    {% for product in products %}
+    <div class="product-card">
+        <h2>{{ product[1] }}</h2>  {# Assuming Description is the third column in the SELECT query result #}
+        <p>Price: {{ product[2] }}</p> {# Assuming Category is the second column #}
+        <p>Status: {{ product[3] }}</p> {# Assuming Status is the fourth column #}
+        <img src="{{ url_for('static', filename='images/' + product_images[loop.index0]['img']) }}" class="product-image" alt="Product Image">
+        
+        <!-- Add a form to submit the pet_id to the /add_to_cart route -->
+        <form method="POST" action="{{ url_for('add_to_cart1') }}" onsubmit="return addToCart(this);">
+            <input type="hidden" name="product_id" value="{{ product[0] }}">
+            <input type="hidden" id="added_items" value="{{ session.get('added_items', '[]') | tojson | safe }}">
+            <button class="know-more-button" type="submit" {% if product[0] in session.get('added_items', []) %}disabled{% endif %}>
+                {% if product[0] in session.get('added_items', []) %}Added{% else %}Add to Cart{% endif %}
+            </button>
+        </form>
+    </div>
+{% endfor %}
+</div>
+
+<script>
+    function addToCart(form) {
+        // Get the pet_id from the form
+        var productId = form.querySelector('[name="product_id"]').value;
+
+        // Disable the button to prevent multiple submissions
+        var button = form.querySelector('.know-more-button');
+        button.disabled = true;
+
+        // Change the button text to "Added"
+        button.textContent = 'Added';
+
+        // Access the added_items from the hidden input
+        var addedItemsInput = document.getElementById('added_items');
+        var addedItems = JSON.parse(addedItemsInput.value || '[]');
+
+        // Add the pet_id to the list of added items in the session
+        addedItems.push(productId);
+        addedItemsInput.value = JSON.stringify(addedItems);
+
+        // Submit the form
+        return true;
+    }
+</script>
+
+
+{% endblock %}
+
+{% block style %}
+<style>
+    .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .product-card {
+        width: 250px;
+        border: 1px solid #ccc;
+        margin: 10px;
+        padding: 10px;
+        text-align: center;
+        background-color: #fff;
+    }
+
+    .product-image {
+        width: 100%;
+        max-height: 150px;
+    }
+
+    
+</style>
+
+
+
+{% endblock %}
+
+

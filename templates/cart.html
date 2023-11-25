@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block title %} 
+    Cart Page
+{% endblock %}
+
+{% block content %}
+    <h1>Your Shopping Cart</h1>
+    
+    {% if cart_contents %}
+        <ul>
+            {% for item in cart_contents %}
+                <li class="cart-item">
+                    <h2>{{ item[2] }}</h2>
+                    <p>Category: {{ item[3] }}</p>
+                    <p>Status: {{ item[4] }}</p>
+                    <!-- Add any other details you want to display for pets -->
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if cart_contents1 %}
+        <ul>
+            {% for item1 in cart_contents1 %}
+                <li class="cart-item">
+                    <h2>{{ item1[2] }}</h2>
+                    <p>{{ item1[1] }}</p>
+                    <p>Status: {{ item1[3] }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if cart_contents1 %}
+        <ul>
+            {% for item2 in cart_contents3 %}
+                <li class="cart-item">
+                    <h2>{{ item1[1] }}</h2>
+                    <p>Service provided: {{ item1[2] }}</p>
+                    <p>Price: {{ item1[3] }}</p>
+                    <p>Reference No: {{ item1[4] }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <a href="{{ url_for('checkout') }}" class="checkout-link">Proceed to Checkout</a>
+{% endblock %}
+
+{% block style %}
+    <style>
+        .cart-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #fff;
+        }
+
+        .checkout-link {
+            display: block;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+    </style>
+{% endblock %}

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    
+    <title>Contact Vendors</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Cardo:400i|Rubik:400,700&display=swap");
+:root {
+  --d: 700ms;
+  --e: cubic-bezier(0.19, 1, 0.22, 1);
+  --font-sans: "Rubik", sans-serif;
+  --font-serif: "Cardo", serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+background-image:url('image/background1.png');
+}
+
+body {
+  display: grid;
+  place-items: center;
+  margin:0px;
+  background: rgb(92,223,229);
+background: linear-gradient(90deg, rgba(92,223,229,1) 0%, rgba(0,74,173,1) 100%);
+}
+h1 {
+ margin: 0em 0 0.2em 0;
+ color:linear-gradient(to right top, #080c11, #0e1520, #111c2e, #16233d, #1d294c);
+ font-weight: normal;
+ font-size: 50px;
+ line-height: 40px;
+ font-family: 'Orienta', sans-serif;
+ background:#fff;
+ padding: 20px;
+}
+nav {
+                    background-color: rgba(131, 105, 83, 0.0);
+                    overflow: hidden;
+                    text-align: center;
+                    }
+
+                nav ul {
+                    list-style-type: none;
+                    margin: 0;
+                    padding: 0;
+                    display: inline-block;
+                    }
+                
+
+                nav li {
+                    display: inline;
+  
+                    }
+
+                nav a {
+                display:inline-block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                }
+
+                nav a:hover {
+                    background-color: #e8ecec;
+                    color: black;
+                }
+
+/* Optional: Add styles for the active link */
+nav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+.logo{
+                    display: inline-block;
+                    font-size: 45px;
+                    padding:10px;
+    
+                    }
+        
+                /* Remove the underline from the links */
+                nav a {
+                    text-decoration: none;
+                    color:black;
+                }
+.page-content {
+  margin-top: 50px;
+  display: grid;
+  grid-gap: 1rem;
+  padding: 1rem;
+  max-width: 1500px;
+  font-family: var(--font-sans);
+
+}
+@media (min-width: 600px) {
+  .page-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 800px) {
+  .page-content {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.card {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  padding: 1rem;
+  width: 100%;
+  text-align: center;
+  color: whitesmoke;
+  background-color: whitesmoke;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.1), 0 4px 4px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.1), 0 16px 16px rgba(0, 0, 0, 0.1);
+}
+@media (min-width: 600px) {
+  .card {
+    height: 390px;
+  }
+}
+.card:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 110%;
+  background-size: cover;
+  background-position: 0 0;
+  transition: transform calc(var(--d) * 1.5) var(--e);
+  pointer-events: none;
+}
+.card:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200%;
+  pointer-events: none;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.009) 11.7%, rgba(0, 0, 0, 0.034) 22.1%, rgba(0, 0, 0, 0.072) 31.2%, rgba(0, 0, 0, 0.123) 39.4%, rgba(0, 0, 0, 0.182) 46.6%, rgba(0, 0, 0, 0.249) 53.1%, rgba(0, 0, 0, 0.32) 58.9%, rgba(0, 0, 0, 0.394) 64.3%, rgba(0, 0, 0, 0.468) 69.3%, rgba(0, 0, 0, 0.54) 74.1%, rgba(0, 0, 0, 0.607) 78.8%, rgba(0, 0, 0, 0.668) 83.6%, rgba(0, 0, 0, 0.721) 88.7%, rgba(0, 0, 0, 0.762) 94.1%, rgba(0, 0, 0, 0.79) 100%);
+  transform: translateY(-50%);
+  transition: transform calc(var(--d) * 2) var(--e);
+}
+.card:nth-child(1):before {
+  background-image: url(https://images.unsplash.com/photo-1517021897933-0e0319cfbc28?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ);
+}
+.card:nth-child(2):before {
+  background-image: url(https://images.unsplash.com/photo-1533903345306-15d1c30952de?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ);
+}
+.card:nth-child(3):before {
+  background-image: url(https://images.unsplash.com/photo-1545243424-0ce743321e11?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ);
+}
+.card:nth-child(4):before {
+  background-image: url(https://images.unsplash.com/photo-1531306728370-e2ebd9d7bb99?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ);
+}
+
+.content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  transition: transform var(--d) var(--e);
+  z-index: 1;
+}
+.content > * + * {
+  margin-top: 1rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.copy {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  font-style: italic;
+  line-height: 1.35;
+}
+.footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position:relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+.btn {
+  cursor: pointer;
+  margin-top: 1.5rem;
+  padding: 0.85rem 1.8rem;
+  font-size: 0.65rem;
+  font-weight: bold;
+  letter-spacing: 0.025rem;
+  text-transform: uppercase;
+  color: white;
+  background-color: #1D294C;
+  border: none;
+}
+.btn:hover {
+  background-color: #fff;
+  color:#1D294C;
+  font-weight:500;
+}
+.btn:focus {
+  outline: 1px dashed yellow;
+  outline-offset: 3px;
+}
+
+@media (hover: hover) and (min-width: 600px) {
+  .card:after {
+    transform: translateY(0);
+  }
+
+  .content {
+    transform: translateY(calc(100% - 4.5rem));
+  }
+  .content > *:not(.title) {
+    opacity: 0;
+    transform: translateY(1rem);
+    transition: transform var(--d) var(--e), opacity var(--d) var(--e);
+  }
+
+  .card:hover,
+.card:focus-within {
+    align-items: center;
+  }
+  .card:hover:before,
+.card:focus-within:before {
+    transform: translateY(-4%);
+  }
+  .card:hover:after,
+.card:focus-within:after {
+    transform: translateY(-50%);
+  }
+  .card:hover .content,
+.card:focus-within .content {
+    transform: translateY(0);
+  }
+  .card:hover .content > *:not(.title),
+.card:focus-within .content > *:not(.title) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: calc(var(--d) / 8);
+  }
+
+  .card:focus-within:before, .card:focus-within:after,
+.card:focus-within .content,
+.card:focus-within .content > *:not(.title) {
+    transition-duration: 0s;
+  }
+}
+
+    </style>
+  </head>
+  <body>
+    <nav>
+        <div class="logo">🐾</div>
+        <ul>
+            <li><a href="{{url_for('home_page')}}">Home</a></li>
+            <li><a href="{{url_for('pet_page')}}">Pets</a></li>
+            <li><a href="{{url_for('shop_page')}}">Pet Shop</a></li>
+            <li><a href="{{url_for('service_page')}}">Services</a></li>
+            <li><a href="{{url_for('aboutus_page')}}">About Us</a></li>
+            <li><a href="{{url_for('login_page')}}">Login</a></li>
+            <li><a href="{{url_for('view_cart')}}">Cart</a></li>
+        </ul>
+    </nav>
+
+ 
+  <main class="page-content">
+
+    <div class="card">
+      <div class="content">
+        <h2 class="title">Prakash Gowda</h2>
+        <p class="copy">Pet Supplies Co.</p>
+        <button class="btn">View Trips</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="content">
+        <h2 class="title">Lakshmi Reddy</h2>
+        <p class="copy">Pet Toys LLC</p>
+        <button class="btn">View Trips</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="content">
+        <h2 class="title">Santhosh Kumar</h2>
+        <p class="copy">Pet Beds Inc.</p>
+        <button class="btn">Book Now</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="content">
+        <h2 class="title">Harish Shetty</h2>
+        <p class="copy">Pet Food Enterprises</p>
+        <button class="btn">Book Now</button>
+      </div>
+    </div>
+
+    
+    <!-- Card 5 -->
+   
+      
+    
+      <!-- Card 5 -->
+      
+  </main>
+
+  
+  
+
+  <div class="footer">
+    &copy; 2023 Paw Prints. All rights reserved.
+</div>
+
+  
+  </body>
+</html>

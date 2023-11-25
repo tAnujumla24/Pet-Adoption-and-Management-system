@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block title %} 
+    Pet Page
+{% endblock %}
+
+{% block content %}
+<div class="card-container">
+    {% for pet in pets %}
+    <div class="product-card">
+        <h2>{{ pet[2] }}</h2>  {# Assuming Description is the third column in the SELECT query result #}
+        <p>{{ pet[1] }}</p> {# Assuming Category is the second column #}
+        <p>Status: {{ pet[3] }}</p> 
+        <p>Price: 100</p>
+        <img src="{{ url_for('static', filename='images/' + images[loop.index0]['img']) }}" class="product-image" alt="Pet Image">
+        
+        <!-- Add a form to submit the pet_id to the /add_to_cart route -->
+        <form method="POST" action="{{ url_for('add_to_cart') }}" onsubmit="return addToCart(this);">
+            <input type="hidden" name="pet_id" value="{{ pet[0] }}">
+            <input type="hidden" id="added_items" value="{{ session.get('added_items', '[]') | tojson | safe }}">
+            <button class="know-more-button" type="submit" {% if pet[0] in session.get('added_items', []) %}disabled{% endif %}>
+                {% if pet[0] in session.get('added_items', []) %}Added{% else %}Add to Cart{% endif %}
+            </button>
+        </form>
+    </div>
+{% endfor %}
+</div>
+
+<script>
+    function addToCart(form) {
+        // Get the pet_id from the form
+        var petId = form.querySelector('[name="pet_id"]').value;
+
+        // Disable the button to prevent multiple submissions
+        var button = form.querySelector('.know-more-button');
+        button.disabled = true;
+
+        // Change the button text to "Added"
+        button.textContent = 'Added';
+
+        // Access the added_items from the hidden input
+        var addedItemsInput = document.getElementById('added_items');
+        var addedItems = JSON.parse(addedItemsInput.value || '[]');
+
+        // Add the pet_id to the list of added items in the session
+        addedItems.push(petId);
+        addedItemsInput.value = JSON.stringify(addedItems);
+
+        // Submit the form
+        return true;
+    }
+</script>
+{% endblock %}
+
+{% block style %}
+<style>
+    .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        border-radius: 10px;
+    }
+
+    .product-card {
+        width: 250px;
+        border: 1px solid #ccc;
+        margin: 10px;
+        padding: 10px;
+        text-align: center;
+        background-color: #fff;
+        border-radius: 10px;
+    }
+
+    .product-image {
+        width: 100%;
+        max-height: 150px;
+    }
+
+    
+</style>
+{% endblock %}

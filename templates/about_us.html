@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block title %} 
+    About Us
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <h2>Welcome to Our Pet Adoption and Pet Shop!</h2>
+    <p>
+        At Our Pet Adoption and Pet Shop, our mission is to connect loving families with wonderful pets. 
+        Whether you're looking to adopt a furry friend or find high-quality pet supplies, we've got you covered.
+    </p>
+
+    <h2>Our Story</h2>
+    <p>
+        Founded in [Year], Our Pet Adoption and Pet Shop started with a simple idea: to create a place where 
+        pets and pet lovers could come together. Over the years, we've helped countless families find their 
+        perfect companions and provided top-notch products for the well-being of pets.
+    </p>
+    <h2>What We Offer</h2>
+    <p>
+        - A diverse selection of adorable pets ready for adoption.
+        <br>
+        - High-quality pet food, toys, accessories, and more in our pet shop.
+        <br>
+        - Knowledgeable and friendly staff passionate about animals.
+        <br>
+        - Community events and resources for pet care.
+    </p>
+    <h2>Contact Us</h2>
+<p>
+    Have questions or want to learn more about our pet adoption process or products? Feel free to 
+    reach out to us at [Email] or [Phone Number]. We look forward to serving you and your furry friends!
+</p>
+<p>We have already reached {{ans}} orders !!!</p>
+</div>
+
+
+
+{% endblock %}
+
+{% block style %}
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background: rgb(92,223,229);
+background: linear-gradient(90deg, rgba(92,223,229,1) 0%, rgba(0,74,173,1) 100%);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background: #444;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+}
+.container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            font-family: Julee;
+        }
+</style>
+
+
+{% endblock %}
+

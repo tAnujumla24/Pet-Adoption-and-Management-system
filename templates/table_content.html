@@ -1,0 +1,20 @@
+<!-- table_content.html -->
+
+<table border="1">
+    <!-- Row for column headers -->
+    <tr>
+        {% for column_name in data[0] %}
+            <td>{{ column_name }}</td>
+        {% endfor %}
+    </tr>
+
+    <!-- Rows for data -->
+    {% for row in data[1:] %}
+        <tr>
+            {% for value in row %}
+                <td>{{ value }}</td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+</table>
+
